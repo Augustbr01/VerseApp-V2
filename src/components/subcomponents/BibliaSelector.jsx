@@ -18,7 +18,7 @@ export default function BibleSelector() {
 
   // Carregar JSON 
   useEffect(() => {
-    fetch('./src/assets/biblia.json')
+    fetch('/biblia.json')
       .then(res => res.json())
       .then(data => {
         setVersiculos(data);
