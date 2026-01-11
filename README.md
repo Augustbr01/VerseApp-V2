@@ -1,10 +1,5 @@
 # 📖 VerseApp V2
 
-Aplicação moderna para buscar e ler versículos bíblicos, construída com **React**, **Vite**, **Tailwind CSS v4** e **Headless UI**.  
-Reescrita completa da primeira versão (HTML/CSS/JS) com foco em performance, UX e escalabilidade.
-
----
-
 ## ✨ Features
 
 - 🔎 Seleção de **Livro, Capítulo e Versículo** em comboboxes elegantes
