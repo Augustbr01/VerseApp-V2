@@ -17,6 +17,10 @@
     animation-name: slideInFromBottom;
   }
 
+  .animate-fade-pulse {
+    animation: fade-pulse 2s ease-in-out infinite;
+  }
+
   .duration-200 {
     animation-duration: 200ms;
   }
@@ -94,5 +98,15 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+
+@keyframes fade-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
     }
 }

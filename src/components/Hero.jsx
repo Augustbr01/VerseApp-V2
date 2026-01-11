@@ -18,7 +18,7 @@ export default function Hero() {
             <div 
                 className="absolute inset-0 opacity-100" 
                 style={{
-                    background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgb(59, 130, 246, 0.15), transparent 40%)`
+                    background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgb(255, 255, 255, 0.10), transparent 40%)`
                 }}
             />
 
@@ -34,8 +34,8 @@ export default function Hero() {
                             <h1 className="  font-display inline font-bold text-5xl md:text-5xl lg:text-6xl">Fortaleça-se.</h1>
                         </div>
                         <div>
-                            <h1 className="font-display inline font-bold text-5xl md:text-6xl lg:text-6xl">Viva a </h1>
-                            <h1 className="font-display inline font-bold text-5xl md:text-6xl text-[#F4C430] lg:text-6xl">palavra.</h1> 
+                            <h1 className="font-display inline font-bold text-5xl md:text-6xl lg:text-6xl animate-fade-pulse ">Viva </h1>
+                            <h1 className="font-display inline font-bold text-5xl md:text-6xl text-[#F4C430] lg:text-6xl">a palavra.</h1> 
                         </div>
                         
                     </div>
