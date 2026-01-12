@@ -11,18 +11,18 @@ export default function ResultDisplay({ versiculo, capituloCompleto, onVerCapitu
                         <button className='flex'></button>
                     </div>
                     <p className="mt-2 font-display  text-white">{versiculo.texto}</p>
-                    
-                </div>
-                <button 
+                    <button 
                     onClick={onVerCapitulo}
-                    className='font-display lg:absolute lg:right-100 lg:top-50 pt-1 pb-1 pr-3 pl-3 mt-7 mb-5 bg-white/10 border border-white/10 rounded-full animate slide-in-from-top duration-700 hover:bg-white/30'
-                >Ver capitulo completo
-                </button>
+                    className='font-display pt-1 pb-1 pr-3 pl-3 mt-7  bg-white/10 border border-white/10 rounded-full animate slide-in-from-top duration-700 hover:bg-white/30'
+                    >Ver capitulo completo
+                    </button>
+                </div>
+                
             </div>
             )}
 
             {capituloCompleto && (
-            <div className="scrollbar-custom font-display relative p-6 mb-5 bg-stone-800/50 backdrop-blur rounded-4xl border border-stone-400/40 shadow-2xl max-w-screen max-h-[85vh] overflow-y-auto">
+            <div className="scrollbar-custom font-display relative p-6 mb-5 bg-stone-800/50 backdrop-blur rounded-4xl border border-stone-400/40 shadow-2xl max-w-screen max-h-[85vh] overflow-y-auto animate slide-in-from-top duration-700">
                 <h3 className="text-center text-md lg:text-xl font-bold text-stone-300 mb-6 sticky top-0 bg-stone-900 border border-stone-400/40 shadow-2xl rounded-full pt-2 pb-2">
                     {capituloCompleto.referencia}
                 </h3>
