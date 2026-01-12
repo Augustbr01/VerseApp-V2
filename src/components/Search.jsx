@@ -31,7 +31,7 @@ export default function Search() {
                     <div className="animate-in slide-in-from-bottom duration-700 delay-100 sm:ml-15 max-[500px]:ml-2 lg:ml-10 ml-20 md:ml-30 flex flex-col">
                         <div>
                             <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl ">Inspire-se. </h1>
-                            <h1 className="  font-display inline font-bold text-5xl md:text-5xl lg:text-6xl">Fortaleça-se.</h1>
+                            <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl">Fortaleça-se.</h1>
                         </div>
                         <div>
                             <h1 className="font-display inline font-bold text-5xl md:text-6xl lg:text-6xl animate-fade-pulse ">Viva </h1>
@@ -40,9 +40,7 @@ export default function Search() {
                         
                     </div>
 
-                    <div className="font-display max-[500px]:ml-2 md:ml-30 ml-13 lg:ml-10 flex mt-20 border items-center border-stone-400/30 mb-70 w-93 h-12 bg-[#525252]/60 rounded-full ">
-                        <BibliaSearch/>
-                    </div>
+                    <BibliaSearch />
                 </div>
             </div>
         </section>

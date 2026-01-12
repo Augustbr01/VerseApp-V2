@@ -18,7 +18,7 @@ export default function SelectLivro({ livros, selectedLivro, onLivroChange }) {
         <ComboboxInput
           readOnly 
           className={clsx(
-            'text-1xl ml-1 w-30 h-10 outline-0 pl-3 pr-3 bg-[#313131] rounded-full',
+            'font-display text-1xl ml-1 w-30 h-10 outline-0 pl-3 pr-3 bg-[#313131] rounded-full',
             'rounded-full border-none text-sm/6 text-white',
             'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25'
           )}
@@ -27,7 +27,7 @@ export default function SelectLivro({ livros, selectedLivro, onLivroChange }) {
           placeholder="Livro"
         />
         <ComboboxButton className="group absolute inset-y-0 right-0 px-2.5">
-          <ChevronDownIcon className="size-4 fill-white/60 group-data-hover:fill-white" />
+          <ChevronDownIcon className="font-display size-4 fill-white/60 group-data-hover:fill-white" />
         </ComboboxButton>
       </div>
 
@@ -50,7 +50,7 @@ export default function SelectLivro({ livros, selectedLivro, onLivroChange }) {
             value={livro}
             className="group flex cursor-default scrollbar-custom items-center gap-2 rounded-lg px-2 py-1.5 select-none data-focus:bg-white/10 "
           >
-            <div className="text-sm/6 text-white">{livro.name}</div>
+            <div className="font-display text-sm/6 text-white">{livro.name}</div>
           </ComboboxOption>
         ))}
       </ComboboxOptions>

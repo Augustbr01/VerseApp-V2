@@ -40,7 +40,7 @@ export default function SelectCapitulo({ capitulos, selectedCapitulo, onCapitulo
               value={cap}
               className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
             >
-              <div className="text-sm/6 text-white">{cap.name}</div>
+              <div className="font-display text-sm/6 text-white">{cap.name}</div>
             </ComboboxOption>
           ))}
         </ComboboxOptions>
