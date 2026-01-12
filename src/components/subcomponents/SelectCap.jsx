@@ -33,12 +33,12 @@ export default function SelectCapitulo({ capitulos, selectedCapitulo, onCapitulo
           </ComboboxButton>
         </div>
 
-        <ComboboxOptions anchor="bottom" transition className={clsx('scrollbar-custom grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-w-5xl max-h-screen rounded-xl border border-white/5 bg-stone-900/95 md:bg-white/5 p-1 [--anchor-gap:--spacing(1)] empty:invisible', 'transition duration-100 ease-in data-leave:data-closed:opacity-0')}>
+        <ComboboxOptions anchor="bottom" transition className={clsx('scrollbar-custom grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-w-5xl max-h-screen rounded-xl border border-white/5 bg-stone-900/95 p-1 [--anchor-gap:--spacing(1)] empty:invisible', 'transition duration-100 ease-in data-leave:data-closed:opacity-0')}>
           {filteredCapitulo.map((cap) => (
             <ComboboxOption
               key={cap.id}
               value={cap}
-              className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
+              className="justify-center group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
             >
               <div className="font-display text-sm/6 text-white">{cap.name}</div>
             </ComboboxOption>

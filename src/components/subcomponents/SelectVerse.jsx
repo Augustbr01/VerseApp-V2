@@ -26,7 +26,7 @@ export default function SelectVerse({ versos, selectedVerse, onVerseChange, disa
           <ComboboxInput
             readOnly 
             className={clsx(
-              'text-1xl ml-1 w-20 h-10 outline-0 pl-3 pr-3 bg-[#313131] rounded-full',
+              'font-display text-1xl ml-1 w-20 h-10 outline-0 pl-3 pr-3 bg-[#313131] rounded-full',
               'rounded-full border-none  text-sm/6 text-white',
               'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25',
               disabled && 'opacity-50 cursor-not-allowed'
@@ -44,15 +44,15 @@ export default function SelectVerse({ versos, selectedVerse, onVerseChange, disa
           anchor="bottom"
           transition
           className={clsx(
-            'grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-w-5xl max-h-screen rounded-xl border scrollbar-custom border-white/5 bg-stone-900/95 md:bg-white/5 p-1 [--anchor-gap:--spacing(1)] empty:invisible',
-            'transition duration-100 ease-in data-leave:data-closed:opacity-0'
+            'font-display grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-w-5xl max-h-screen rounded-xl border scrollbar-custom border-white/5 bg-stone-900/95 p-1 [--anchor-gap:--spacing(1)] empty:invisible',
+            'transition duration-100 ease-in data-leave:data-closed:opacity-0 '
           )}
         >
           {filteredVerse.map((verso) => (
             <ComboboxOption
               key={verso.id}
               value={verso}
-              className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
+              className=" justify-center group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
             >
 
             <div className="text-center text-sm/6 text-white">{verso.name}</div>

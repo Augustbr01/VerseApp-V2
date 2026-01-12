@@ -32,16 +32,35 @@ export default function SelectLivro({ livros, selectedLivro, onLivroChange }) {
       </div>
 
       <ComboboxOptions
+        anchor="bottom start"
         transition
         className={clsx(
-          'absolute left-0 min-[200px]:top-[calc(50%)] min-[200px]:pt-0 min-[320px]:top-[calc(55%)] sm:top-[calc(40%)] md:top-[calc(50%)] z-50',
-        'w-max min-w-full max-w-[90vw]',
-        'grid grid-cols-4 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-5 gap-2',
-        'max-h-96 overflow-y-auto scrollbar-custom',
-        'rounded-xl border border-white/5 bg-stone-900/95 md:bg-white/5 p-1',
-        'transition duration-100 ease-in',
-        'data-closed:scale-95 data-closed:opacity-0',
-        'data-leave:data-closed:opacity-0'
+          // Remove absolute e posicionamento manual!
+          // O anchor faz tudo automaticamente
+          
+          // Controle de espaçamento
+          '[--anchor-gap:0.5rem]',      // Distância do botão
+          '[--anchor-padding:1rem]',     // Margem da viewport
+          
+          // Largura
+          'w-auto min-w-[320px] max-w-120',
+          
+          // Grid
+          'grid grid-cols-2 gap-3 p-4',
+          
+          // Altura
+          'max-h-100 overflow-y-auto scrollbar-custom',
+          
+          // Estilo
+          'rounded-xl border border-white/10 bg-stone-900/95',
+          'backdrop-blur-sm shadow-2xl',
+          
+          // Z-index
+          'z-50',
+          
+          // Transições
+          'transition duration-150 ease-out',
+          'data-closed:scale-95 data-closed:opacity-0'
         )}
       >
         {filteredLivro.map((livro) => (

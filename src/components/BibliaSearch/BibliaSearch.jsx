@@ -49,7 +49,7 @@ export default function BibliaSearch() {
             });
 
             setTimeout(() => {
-                resultadoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                resultadoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
             }, 100);
         }
     };
