@@ -60,6 +60,5 @@ export default function SelectVerse({ versos, selectedVerse, onVerseChange, disa
           ))}
         </ComboboxOptions>
       </Combobox>
-
   )
 }

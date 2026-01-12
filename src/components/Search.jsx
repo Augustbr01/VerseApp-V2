@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import BibleSelector from "./subcomponents/BibliaSelector";
+import BibliaSearch from "./BibliaSearch/BibliaSearch";
 
-export default function Hero() {
+export default function Search() {
     const [mousePosition, setMousePosition] = useState({x:0, y:0})
 
     useEffect(() => {
@@ -41,7 +41,7 @@ export default function Hero() {
                     </div>
 
                     <div className="font-display max-[500px]:ml-2 md:ml-30 ml-13 lg:ml-10 flex mt-20 border items-center border-stone-400/30 mb-70 w-93 h-12 bg-[#525252]/60 rounded-full ">
-                        <BibleSelector/>
+                        <BibliaSearch/>
                     </div>
                 </div>
             </div>

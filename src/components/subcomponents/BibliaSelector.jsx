@@ -108,45 +108,7 @@ export default function BibleSelector() {
 
   return (
     <div className="">
-      <div className="flex items-center ">
-        <SelectLivro 
-          livros={livros}
-          selectedLivro={livroSelecionado}
-          onLivroChange={handleLivroChange}
-        />
-        
-        <SelectCapitulo 
-          capitulos={capitulos}
-          selectedCapitulo={capituloSelecionado}
-          onCapituloChange={handleCapituloChange}
-          disabled={!livroSelecionado}
-        />
-        
-        <SelectVerse 
-          versos={versos}
-          selectedVerse={versiculoSelecionado}
-          onVerseChange={handleVersiculoChange}
-          disabled={!capituloSelecionado}
-        />
-
-        <button
-          onClick={buscarVersiculo}
-          disabled={!versiculoSelecionado}
-          className="flex items-center justify-center mt-1 ml-1 mr-1 mb-1 bg-[#FFC74D] w-17 h-10 rounded-full hover:border-2 hover:border-stone-900 transition-all"
-        >
-          <MoveRight className="text-black"/>
-        </button>
-      </div>
-
-      {versiculoExibido && (
-        <div className="absolute max-w-150 lg:top-27 lg:-right-1 lg:mr-0 mt-6 p-4 mr-10 bg-white/10 border border-white/10 rounded-lg animate slide-in-from-top duration-300 ">
-          <div className='flex justify-between'>
-            <p className="text-sm text-white/60">{versiculoExibido.referencia}</p>
-            <button className='flex'></button>
-          </div>
-          <p className="mt-2 text-white">{versiculoExibido.texto}</p>
-        </div>
-      )}
+      
     </div>
   );
 }
