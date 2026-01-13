@@ -3,12 +3,6 @@ import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
 import { useState } from 'react'
 
-const livro = [
-  { id: 1, name: '1' },
-  { id: 3, name: '2' },
-  { id: 4, name: '3' },
-  { id: 5, name: '4' },
-]
 
 export default function SelectVerse({ versos, selectedVerse, onVerseChange, disabled }) {
   const [query, setQuery] = useState('')
