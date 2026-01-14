@@ -2,21 +2,25 @@ import { useEffect, useState } from "react"
 import BibliaSearch from "./BibliaSearch/BibliaSearch";
 
 export default function Search() {
-    const [mousePosition, setMousePosition] = useState({x:0, y:0})
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        function handleMouseMove(e) {
-            setMousePosition({x: e.clientX, y: e.clientY});
-        }
-
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
+        const handleMouseMove = (e) => {
+            setMousePosition({ 
+                x: e.pageX,
+                y: e.pageY
+            });
+        };
+        
+        window.addEventListener('mousemove', handleMouseMove);
+        
+        return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
     return (
-        <section className="relative min-h-screen flex justify-center pt-16 sm:pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section className=" relative min-h-screen flex justify-center pt-16 sm:pt-20 sm:px-0 md:px-6 lg:px-8 ">
             <div 
-                className="absolute inset-0 opacity-100 h-screen" 
+                className="absolute inset-0 opacity-100 min-h-full" 
                 style={{
                     background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgb(255, 255, 255, 0.10), transparent 40%)`
                 }}
@@ -27,8 +31,8 @@ export default function Search() {
 
 
             <div className="max-w-7xl grid-cols-2 mt-10 lg:mt-40 relative w-full">
-                <div className="max-w-7xl  flex flex-col ">
-                    <div className="animate-in slide-in-from-bottom duration-700 delay-100 sm:ml-15 max-[500px]:ml-2 lg:ml-10 ml-20 md:ml-30 flex flex-col">
+                <div className="max-w-7xl flex flex-col ">
+                    <div className="animate-in slide-in-from-bottom duration-700 delay-100 ml-10 flex flex-col">
                         <div>
                             <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl ">Inspire-se. </h1>
                             <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl">Fortaleça-se.</h1>

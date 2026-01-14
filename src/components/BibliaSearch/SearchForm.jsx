@@ -16,7 +16,7 @@ export default function SearchForm({
     buscarVersiculo,
 }) {
     return (
-        <div className="font-display max-[500px]:ml-2 md:ml-30 ml-13 lg:ml-10 flex mt-20 border items-center border-stone-400/30 mb-20 w-93 h-12 bg-[#525252]/60 rounded-full ">
+        <div className="font-display ml-5 md:ml-10 flex mt-20 border items-center border-stone-400/30 mb-0 lg:mb-15 w-93 h-12 bg-[#525252]/60 rounded-full ">
             <div className="flex  items-center">
                 <SelectLivro 
                     livros={livros}
