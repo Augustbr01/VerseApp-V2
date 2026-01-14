@@ -19,7 +19,7 @@ export default function SelectCapitulo({ capitulos, selectedCapitulo, onCapitulo
           <ComboboxInput
             readOnly 
             className={clsx(
-              'text-1xl ml-1 w-25 h-10 outline-0 pl-3 pr-3 bg-[#313131] rounded-full',
+              'text-1xl ml-1 w-25 h-10 outline-0 pl-3 pr-3 bg-stone-900/50 rounded-full',
               'rounded-full border-none  text-sm/6 text-white',
               'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25',
               disabled && 'opacity-50 cursor-not-allowed'
@@ -38,7 +38,7 @@ export default function SelectCapitulo({ capitulos, selectedCapitulo, onCapitulo
             <ComboboxOption
               key={cap.id}
               value={cap}
-              className="justify-center group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
+              className="justify-center group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none bg-stone-500/20 data-focus:bg-white/50"
             >
               <div className="font-display text-sm/6 text-white">{cap.name}</div>
             </ComboboxOption>
