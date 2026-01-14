@@ -19,10 +19,28 @@ export function PaginaFavoritos() {
 
     if (!favoritos.length) { 
         return (
-            <section className="relative min-h-screen flex items-center justify-center pt-16 px-4">
-                <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-4">Nenhum versículo favorito ainda</h2>
-                    <p className="text-gray-400 text-lg">Comece favoritando versículos que tocam seu coração! ❤️</p>
+            <section className="relative min-h-screen flex justify-center pt-16 sm:pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+                <div 
+                    className="absolute inset-0 opacity-100 h-screen" 
+                    style={{
+                        background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgb(255, 255, 255, 0.10), transparent 40%)`
+                    }}
+                />
+
+                <div className="absolute -top-600 -right-500 sm:-top-570 sm:-right-420 sm:w-700 sm:h-700 w-700 h-700 bg-[#FFFFFF]/40 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute -bottom-600 -left-500 sm:-bottom-580 sm:-left-420 sm:w-700 sm:h-700 w-700 h-700 bg-[#F4C430]/40 rounded-full blur-3xl animate-pulse"></div>
+
+                <div className="max-w-7xl flex mt-50 md:mt-60 w-full">
+                    <div className="max-w-7xl flex flex-col w-full">
+                        <div className="animate-in slide-in-from-bottom duration-700 delay-100 sm:ml-15 max-[500px]:ml-2 lg:ml-10 ml-20 md:ml-30 flex flex-col mb-8">
+                            <h1 className="font-display text-center  font-bold text-4xl md:text-5xl lg:text-6xl mb-2">
+                                Nenhum versículo favorito ainda :(
+                            </h1>
+                            <span className="text-center font-display text-sm">Comece favoritando versículos que tocam em seu coração! ❤️</span>
+                        </div>
+                        
+                        
+                    </div>
                 </div>
             </section>
         );

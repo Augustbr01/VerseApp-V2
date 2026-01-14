@@ -19,7 +19,7 @@ export default function SelectCapitulo({ capitulos, selectedCapitulo, onCapitulo
           <ComboboxInput
             readOnly 
             className={clsx(
-              'text-1xl ml-1 w-20 h-10 outline-0 pl-3 pr-3 bg-[#313131] rounded-full',
+              'text-1xl ml-1 w-25 h-10 outline-0 pl-3 pr-3 bg-[#313131] rounded-full',
               'rounded-full border-none  text-sm/6 text-white',
               'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25',
               disabled && 'opacity-50 cursor-not-allowed'

@@ -18,7 +18,7 @@ export default function SelectLivro({ livros, selectedLivro, onLivroChange }) {
         <ComboboxInput
           readOnly 
           className={clsx(
-            'font-display text-1xl ml-1 w-30 h-10 outline-0 pl-3 pr-3 bg-[#313131] rounded-full',
+            'font-display text-1xl ml-1 w-20 h-10 outline-0 pl-3 pr-3 bg-[#313131] rounded-full',
             'rounded-full border-none text-sm/6 text-white',
             'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25'
           )}

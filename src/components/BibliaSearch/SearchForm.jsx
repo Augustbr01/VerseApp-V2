@@ -40,8 +40,8 @@ export default function SearchForm({
         
                 <button
                     onClick={buscarVersiculo}
-                    disabled={!livroSelecionado || !capituloSelecionado || !versiculoSelecionado}
-                    className="flex items-center justify-center mt-1 ml-1 mr-1 mb-1 bg-[#FFC74D] w-17 h-10 rounded-full hover:border-2 hover:border-stone-900 transition-all"
+                    disabled={ !livroSelecionado || !capituloSelecionado || !versiculoSelecionado }
+                    className="disabled:cursor-not-allowed disabled:bg-[#898579] duration-700 disabled:hover:border-0 flex items-center justify-center mt-1 ml-1 mr-1 mb-1 bg-[#FFC74D] w-17 h-10 rounded-full hover:border-2 hover:border-stone-900 transition-all"
                 >
                     <MoveRight className="font-display text-black"/>
                 </button>
