@@ -36,7 +36,7 @@ export default function ResultDisplay({ versiculo, capituloCompleto, onVerCapitu
                 <div className="space-y-2 ">
                 {capituloCompleto.versos.map((verso, index) => (
                     <div key={index} className="flex">
-                        <span className="flex font-display  font-bold text-[#F4C430] min-w-10">
+                        <span className="flex font-display  font-bold text-[#F4C430] min-w-8">
                             {verso.versiculo}
                         </span>
                         <FavoriteButton versiculo={verso}/>
