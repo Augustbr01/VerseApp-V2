@@ -1,17 +1,16 @@
-import { useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react';
 
-export const useFavoritos = () => {
-    const [ favoritos, setFavoritos ] = useState(() => {
+const FavoritosContext = createContext();
+
+export const FavoritosProvider = ({ children }) => {
+    const [favoritos, setFavoritos] = useState(() => {
         const favoritosSalvos = localStorage.getItem('verseapp-favoritos');
-
         return favoritosSalvos ? JSON.parse(favoritosSalvos) : [];
-    })
+    });
 
     useEffect(() => {
-        localStorage.setItem('verseapp-favoritos',
-            JSON.stringify(favoritos));
+        localStorage.setItem('verseapp-favoritos', JSON.stringify(favoritos));
     }, [favoritos]);
-
 
     const adicionarFavorito = (versiculo) => {
         const novoFavorito = {
@@ -22,7 +21,6 @@ export const useFavoritos = () => {
             texto: versiculo.texto,
             dataAdicionado: new Date().toISOString()
         };
-
         setFavoritos(prev => [...prev, novoFavorito]);
     };
 
@@ -42,15 +40,25 @@ export const useFavoritos = () => {
         } else {
             adicionarFavorito(versiculo);
         }
-    }
-
-    return {
-        favoritos,
-        adicionarFavorito,
-        removerFavorito,
-        isFavorito,
-        toggleFavorito
     };
+
+    return (
+        <FavoritosContext.Provider value={{
+            favoritos,
+            adicionarFavorito,
+            removerFavorito,
+            isFavorito,
+            toggleFavorito
+        }}>
+            {children}
+        </FavoritosContext.Provider>
+    );
 };
 
-
+export const useFavoritos = () => {
+    const context = useContext(FavoritosContext);
+    if (!context) {
+        throw new Error('useFavoritos deve ser usado dentro de FavoritosProvider');
+    }
+    return context;
+};
