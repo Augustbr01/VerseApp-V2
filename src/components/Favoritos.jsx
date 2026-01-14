@@ -32,7 +32,7 @@ export function PaginaFavoritos() {
 
                 <div className="max-w-7xl flex mt-50 md:mt-60 w-full">
                     <div className="max-w-7xl flex flex-col w-full">
-                        <div className="animate-in slide-in-from-bottom duration-700 delay-100 sm:ml-15 max-[500px]:ml-2 lg:ml-10 ml-20 md:ml-30 flex flex-col mb-8">
+                        <div className="animate-in slide-in-from-bottom duration-700 delay-100  flex flex-col mb-8">
                             <h1 className="font-display text-center  font-bold text-4xl md:text-5xl lg:text-6xl mb-2">
                                 Nenhum versículo favorito ainda :(
                             </h1>
