@@ -5,6 +5,8 @@ export default function Search() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
+
+        document.title = 'Home - VerseApp V2';
         const handleMouseMove = (e) => {
             setMousePosition({ 
                 x: e.pageX,
