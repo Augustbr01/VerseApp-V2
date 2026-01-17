@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import ReactGA from "react-ga4"
 
 const FavoritosContext = createContext();
 
@@ -22,10 +23,25 @@ export const FavoritosProvider = ({ children }) => {
             dataAdicionado: new Date().toISOString()
         };
         setFavoritos(prev => [...prev, novoFavorito]);
+
+        ReactGA.event({
+            category: "Favoritos",
+            action: "adicionar_favorito",
+            label: `${versiculo.livro} ${versiculo.capitulo}:${versiculo.versiculo}`,
+        });
     };
 
     const removerFavorito = (id) => {
+        const favoritoRemovido = favoritos.find(fav => fav.id === id);
         setFavoritos(prev => prev.filter(fav => fav.id !== id));
+
+        if (favoritoRemovido) {
+            ReactGA.event({
+                category: "Favoritos",
+                action: "remover_favorito",
+                label: `${favoritoRemovido.livro} ${favoritoRemovido.capitulo}:${favoritoRemovido.versiculo}`,
+            });
+        }
     };
 
     const isFavorito = (livro, capitulo, versiculo) => {

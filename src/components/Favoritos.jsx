@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react"; 
 import { FavoriteButton } from "./subcomponents/FavoriteButton";
 import { useFavoritos } from "../contexts/FavoritosContext";
+import ReactGA from "react-ga4"
 
 export function PaginaFavoritos() {
     const { favoritos } = useFavoritos(); 
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
+
+        ReactGA.event({
+            category: "Navegação",
+            action: "visualizar_favoritos",
+            label: `Total: ${favoritos.length}`,
+        });
+
+
         const handleMouseMove = (e) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };

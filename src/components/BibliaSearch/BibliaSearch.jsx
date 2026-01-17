@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useBiblia } from "../../hooks/useBiblia";
 import SearchForm from "./SearchForm";
 import ResultDisplay from "./ResultDisplay";
+import ReactGA from "react-ga4";
 
 
 export default function BibliaSearch() {
@@ -34,6 +35,12 @@ export default function BibliaSearch() {
                 capituloCompleto: null
             });
 
+            ReactGA.event({
+                category: "Busca",
+                action: "buscar_versiculo",
+                label: `${livroSelecionado.name} ${capituloSelecionado.name}:${versiculoSelecionado.name}`,
+            });
+
         }
     };
 
@@ -46,6 +53,12 @@ export default function BibliaSearch() {
                     referencia: `${livroSelecionado.name} ${capituloSelecionado.name}`,
                     versos: capitulo
                 }
+            });
+
+            ReactGA.event({
+                category: "Busca",
+                action: "ver_capitulo_completo",
+                label: `${livroSelecionado.name} ${capituloSelecionado.name}`,
             });
 
             setTimeout(() => {

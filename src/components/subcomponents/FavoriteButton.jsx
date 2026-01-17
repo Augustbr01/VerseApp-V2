@@ -21,7 +21,7 @@ export const FavoriteButton = ({ versiculo }) => {
     };
     
     const dadosParsed = versiculo.livro 
-        ? versiculo // Já tem livro, capitulo, versiculo separados
+        ? versiculo
         : { ...parseReferencia(versiculo.referencia), texto: versiculo.texto, referencia: versiculo.referencia };
     
     const favorited = dadosParsed && isFavorito(dadosParsed.livro, dadosParsed.capitulo, dadosParsed.versiculo);
