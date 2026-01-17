@@ -5,7 +5,10 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import ReactGA from "react-ga4"
 
-ReactGA.initialize("G-MZNJRFF2CY");
+if (window.location.hostname !== 'localhost') {
+  ReactGA.initialize("G-MZNJRFF2CY");
+}
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
