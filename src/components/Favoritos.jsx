@@ -8,7 +8,7 @@ export function PaginaFavoritos() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-
+        document.title = 'Favoritos - VerseApp V2';
         ReactGA.event({
             category: "Navegação",
             action: "visualizar_favoritos",
