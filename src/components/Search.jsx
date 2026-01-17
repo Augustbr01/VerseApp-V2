@@ -35,7 +35,7 @@ export default function Search() {
                     <div className="animate-in slide-in-from-bottom duration-700 delay-100 ml-10 flex flex-col">
                         <div>
                             <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl ">Inspire-se. </h1>
-                            <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl">Fortaleça-se.</h1>
+                            <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl">Renove-se.</h1>
                         </div>
                         <div>
                             <h1 className="font-display inline font-bold text-5xl md:text-6xl lg:text-6xl animate-fade-pulse ">Viva </h1>
