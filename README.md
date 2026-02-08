@@ -1,4 +1,5 @@
 # 📖 VerseApp V2
+![Banner VerseApp](./public/BannerVerseApp.png)
 
 ## ✨ Features
 
