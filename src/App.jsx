@@ -3,6 +3,8 @@ import NavBar from "./components/Navbar"
 import Search from "./components/Search"
 import { PaginaFavoritos } from "./components/Favoritos"
 import { FavoritosProvider } from './contexts/FavoritosContext'
+import NotFound from './components/NotFound'
+
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Search />} />
           <Route path="/favoritos" element={<PaginaFavoritos />} /> 
+          <Route path="*" element={<NotFound/>} />
         </Routes>
       </div>   
     </FavoritosProvider>
