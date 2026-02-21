@@ -36,16 +36,20 @@ export default function Search() {
                 <div className="max-w-7xl flex flex-col ">
                     <div className="animate-in slide-in-from-bottom duration-700 delay-100 ml-10 flex flex-col">
                         <div>
-                            <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl ">Inspire-se. </h1>
-                            <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl">Renove-se.</h1>
+                            <h1 className=" font-display inline font-bold text-5xl md:text-5xl lg:text-6xl ">Jesus é o </h1>
+                            <h1 className=" font-display inline font-bold text-5xl md:text-5xl text-[#F4C430] lg:text-6xl">caminho</h1>
                         </div>
-                        <div>
-                            <h1 className="font-display inline font-bold text-5xl md:text-6xl lg:text-6xl animate-fade-pulse ">Viva </h1>
-                            <h1 className="font-display inline font-bold text-5xl md:text-6xl text-[#F4C430] lg:text-6xl">a palavra.</h1> 
-                        </div>
+                    </div>
+                    <div className="animate-in slide-in-from-bottom duration-700 delay-1000 ml-10 flex ">
+                        <h1 className="font-display inline font-bold text-5xl md:text-6xl lg:text-6xl ">a </h1>
+                        <h1 className="font-display inline font-bold text-5xl text-[#F4C430] md:text-6xl lg:text-6xl ml-3">verdade</h1>
                         
                     </div>
-
+                    <div className="animate-in slide-in-from-bottom duration-700 delay-2000 ml-10 flex ">
+                        <h1 className="font-display inline font-bold text-5xl md:text-6xl lg:text-6xl">e a  </h1> 
+                        <h1 className="font-display inline font-bold text-5xl md:text-6xl lg:text-6xl text-[#F4C430] ml-3 animate-fade-pulse ">vida </h1>
+                        
+                    </div>
                     <BibliaSearch />
                 </div>
             </div>
