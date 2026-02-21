@@ -42,7 +42,7 @@ export default function Search() {
                     </div>
                     <div className="animate-in slide-in-from-bottom duration-700 delay-1000 ml-10 flex ">
                         <h1 className="font-display inline font-bold text-5xl md:text-5xl lg:text-6xl ">a </h1>
-                        <h1 className="font-display inline font-bold text-5xl text-[#F4C430] md:text-6xl lg:text-6xl ml-3">verdade</h1>
+                        <h1 className="font-display inline font-bold text-[#F4C430] text-5xl md:text-5xl lg:text-6xl ml-3">verdade</h1>
                         
                     </div>
                     <div className="animate-in slide-in-from-bottom duration-700 delay-2000 ml-10 flex ">
