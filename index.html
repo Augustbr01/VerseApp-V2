@@ -1,70 +1,92 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VerseApp V2</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap" rel="stylesheet">
-  </head>
- <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #1a1a1a;
-      }
+    <meta name="theme-color" content="#1c1c1c" />
+    <meta
+      name="description"
+      content="Encontre qualquer versículo da Bíblia em três toques: escolha o livro, o capítulo e o versículo."
+    />
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <title>VerseApp — Busque versículos da Bíblia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html { background-color: #1c1c1c; }
+      body { margin: 0; padding: 0; background-color: #1c1c1c; }
 
       #app-loader {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
+        inset: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #1a1a1a;
+        gap: 1.75rem;
+        background-color: #1c1c1c;
+        font-family: "Geologica", ui-sans-serif, system-ui, sans-serif;
         z-index: 9999;
       }
 
-      .loader-logo {
-        font-size: 3rem;
-        font-weight: 700;
-        color: #fbbf24;
-        font-family: 'Geologica', sans-serif;
-        margin-bottom: 2rem;
-        animation: fade-pulse 2s ease-in-out infinite;
+      .loader-mark {
+        font-size: 1.75rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: #f5f2ec;
+      }
+      .loader-mark span { color: #f4c430; }
+
+      /* Três traços que preenchem, ecoando as três etapas da busca */
+      .loader-steps { display: flex; gap: 0.5rem; }
+      .loader-steps i {
+        display: block;
+        width: 2.25rem;
+        height: 3px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        overflow: hidden;
+        position: relative;
+      }
+      .loader-steps i::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: #f4c430;
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: fill 1.8s ease-in-out infinite;
+      }
+      .loader-steps i:nth-child(2)::after { animation-delay: 0.2s; }
+      .loader-steps i:nth-child(3)::after { animation-delay: 0.4s; }
+
+      @keyframes fill {
+        0%       { transform: scaleX(0); transform-origin: left; }
+        45%, 55% { transform: scaleX(1); transform-origin: left; }
+        100%     { transform: scaleX(0); transform-origin: right; }
       }
 
-      .loader-spinner {
-        width: 50px;
-        height: 50px;
-        border: 3px solid rgba(251, 191, 36, 0.1);
-        border-top-color: #fbbf24;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
+      @media (prefers-reduced-motion: reduce) {
+        .loader-steps i::after { animation: none; transform: scaleX(1); }
       }
+    </style>
+  </head>
 
-      @keyframes spin {
-        to { transform: rotate(360deg); }
-      }
-
-      @keyframes fade-pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-      }
-  </style>
   <body>
     <div id="root">
       <!-- Loader que será substituído pelo React -->
       <div id="app-loader">
-        <div class="loader-logo">📖 VerseApp</div>
-        <div class="loader-spinner"></div>
+        <p class="loader-mark"><span>Verse</span>App</p>
+        <div class="loader-steps"><i></i><i></i><i></i></div>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-

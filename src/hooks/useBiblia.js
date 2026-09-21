@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function useBiblia() {
     const [ versiculos, setVersiculos ] = useState([]);
     const [ livros, setLivros ] = useState([]);
-    const [ capitulos, setCapitulos ] = useState([]);
-    const [ versos, setVersos ] = useState([]);
+    const [ carregando, setCarregando ] = useState(true);
+    const [ erro, setErro ] = useState(null);
 
     const [ livroSelecionado, setLivroSelecionado ] = useState(null);
     const [ capituloSelecionado, setCapituloSelecionado ] = useState(null);
@@ -12,49 +12,66 @@ export function useBiblia() {
 
     // Carregar JSON
     useEffect(() => {
+        let ativo = true;
+
         fetch('/biblia.json')
             .then(res => res.json())
             .then(data => {
+                if (!ativo) return;
                 setVersiculos(data);
                 const livrosUnicos = [...new Set(data.map(v => v.livro))]
                     .map((nome, index) => ({ id: index + 1, name: nome}));
                 setLivros(livrosUnicos);
             })
-            .catch(err => console.error('Erro ao carregar biblia', err))
+            .catch(err => {
+                console.error('Erro ao carregar biblia', err);
+                if (ativo) setErro(err);
+            })
+            .finally(() => {
+                if (ativo) setCarregando(false);
+            });
+
+        return () => { ativo = false; };
     }, []);
 
-    // Atualizar os Capitulos
-    useEffect(() => {
-        if (!livroSelecionado) {
-            setCapitulos([]);
-            return;
-        }
+    // Capítulos do livro escolhido
+    const capitulos = useMemo(() => {
+        if (!livroSelecionado) return [];
 
-        const capsUnicos = [...new Set(
+        return [...new Set(
             versiculos
                 .filter(v => v.livro === livroSelecionado.name)
                 .map(v => v.capitulo)
-        )].map((cap, index) => ({ id: index + 1, name: cap }));
-        setCapitulos(capsUnicos);
+        )]
+            .sort((a, b) => parseInt(a, 10) - parseInt(b, 10))
+            .map((cap, index) => ({ id: index + 1, name: cap }));
     }, [livroSelecionado, versiculos]);
 
-    // Atualizar os versiculos
-    useEffect(() => {
-        if (!livroSelecionado || !capituloSelecionado) {
-            setVersos([]);
-            return;
-        }
+    // Versículos do capítulo escolhido
+    const versos = useMemo(() => {
+        if (!livroSelecionado || !capituloSelecionado) return [];
 
-        const versosDoCapitulo = versiculos 
+        return versiculos
             .filter(v =>
                 v.livro === livroSelecionado.name &&
                 v.capitulo === capituloSelecionado.name
             )
+            .sort((a, b) => parseInt(a.versiculo, 10) - parseInt(b.versiculo, 10))
             .map((v, index) => ({ id: index + 1, name: v.versiculo }));
-        setVersos(versosDoCapitulo);
-    }, [livroSelecionado, capituloSelecionado, versiculos])
+    }, [livroSelecionado, capituloSelecionado, versiculos]);
 
-    // Funções
+    // Trocar um nível acima limpa os de baixo — senão sobra uma seleção que
+    // não existe no novo livro/capítulo e a busca falha em silêncio.
+    const selecionarLivro = (livro) => {
+        setLivroSelecionado(livro);
+        setCapituloSelecionado(null);
+        setVersiculoSelecionado(null);
+    };
+
+    const selecionarCapitulo = (capitulo) => {
+        setCapituloSelecionado(capitulo);
+        setVersiculoSelecionado(null);
+    };
 
     // Busca versiculo
     const buscarVersiculo = () => {
@@ -69,7 +86,6 @@ export function useBiblia() {
     };
 
     // Buscar Capitulo completo
-
     const buscarCapituloCompleto = () => {
         if (!livroSelecionado || !capituloSelecionado) return null;
 
@@ -78,21 +94,22 @@ export function useBiblia() {
                 v.livro === livroSelecionado.name &&
                 v.capitulo === capituloSelecionado.name
             )
-            .sort((a, b) => parseInt(a.versiculo) - parseInt(b.versiculo));
+            .sort((a, b) => parseInt(a.versiculo, 10) - parseInt(b.versiculo, 10));
     };
 
     return {
         livros,
         capitulos,
         versos,
+        carregando,
+        erro,
         livroSelecionado,
         capituloSelecionado,
         versiculoSelecionado,
-        setLivroSelecionado,
-        setCapituloSelecionado,
+        setLivroSelecionado: selecionarLivro,
+        setCapituloSelecionado: selecionarCapitulo,
         setVersiculoSelecionado,
         buscarVersiculo,
         buscarCapituloCompleto
     };
-
 }
